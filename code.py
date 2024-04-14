@@ -11,9 +11,9 @@ def fit(self, X,y):
     self.bias = 0
 
     for _ in range(self.n_iters):
-        y=np.dot(X, self.weights) + self.bias
-        dw = (1/n_samples)*np.dot(X.T, (y_pred-y))
-        db = (1/n_samples)*np.sum(y_pred-y)
+        y=np.dot(X, self.weights) + self.bias # y = X.w + b
+        dw = (1/n_samples)*np.dot(X.T, (y_pred-y)) # gradient of weights
+        db = (1/n_samples)*np.sum(y_pred-y) # gradient of bias
         self.weights = self.weights -  self.lr * dw
         self.bias = self.bias -  self.lr * db
 def predict(self, X):
